@@ -1,5 +1,5 @@
 from stats import get_num_words, get_num_of_chars, create_char_list
-
+import sys
 
 def main():
 
@@ -10,7 +10,11 @@ def main():
     def sort_on(items):
         return items["num"]
     
-    file_path = "./books/frankenstein.txt"
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    file_path = f"./{sys.argv[1]}"
     
     book_text = get_book_text(file_path)
 
